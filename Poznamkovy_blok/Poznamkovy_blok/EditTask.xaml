@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Poznamkovy_blok.EditTask">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <ScrollView>
+                <ListView x:Name="listview" RowHeight="160" ItemSelected="ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid BackgroundColor="white" Margin="3">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30*"/>
+                                        <ColumnDefinition Width="30*"/>
+                                        <ColumnDefinition Width="20*"/>
+                                        <ColumnDefinition Width="20*"/>
+                                        <ColumnDefinition Width="35*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="20"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Margin="2" Text="{Binding Name}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" TextColor="black"/>
+                                    <Label Padding="8" Text="{Binding Text}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" FontSize="14" TextColor="black"/>
+                                    
+                                    <Label Text="Created at:" Grid.Column="0" Grid.Row="2" FontSize="12" TextColor="black" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Date_Creation}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalTextAlignment="Center" FontSize="10" TextColor="Black"/>
+
+                                    <Label Text="Updated at:" Grid.Column="0" Grid.Row="3" FontSize="12" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Date_Last}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" FontSize="10" VerticalTextAlignment="Center" TextColor="Black"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            
+            <Entry x:Name="ID" IsVisible="false"/>
+            <Entry x:Name="TaskName" Keyboard="Text" Placeholder="Topic of the task" BackgroundColor="white" TextColor="black" PlaceholderColor="black" FontSize="12" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3"/>
+            <Entry x:Name="TaskText" Keyboard="Text" Placeholder="Text of the task" BackgroundColor="white" TextColor="black" PlaceholderColor="black" FontSize="12" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3"/>
+
+            <Button Clicked="OnUpdateTask" Text="Update" BackgroundColor="black" TextColor="white" FontSize="12" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
