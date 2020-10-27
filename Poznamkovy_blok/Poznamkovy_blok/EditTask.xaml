@@ -5,36 +5,37 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <ScrollView>
-                <ListView x:Name="listview" RowHeight="160" ItemSelected="ItemSelected">
+                <ListView x:Name="listview" RowHeight="180" ItemSelected="ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid BackgroundColor="white" Margin="3">
+                                <Grid BackgroundColor="white">
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30*"/>
-                                        <ColumnDefinition Width="30*"/>
-                                        <ColumnDefinition Width="20*"/>
-                                        <ColumnDefinition Width="20*"/>
-                                        <ColumnDefinition Width="35*"/>
-                                    </Grid.ColumnDefinitions>
-                                    
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="30"/>
                                         <RowDefinition Height="30"/>
                                         <RowDefinition Height="20"/>
                                         <RowDefinition Height="20"/>
                                         <RowDefinition Height="20"/>
                                     </Grid.RowDefinitions>
+                                
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="35*"/>
+                                        <ColumnDefinition Width="35*"/>
+                                        <ColumnDefinition Width="35*"/>
+                                        <ColumnDefinition Width="45*"/>
+                                        <ColumnDefinition Width="35*"/>
+                                        <ColumnDefinition Width="35*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <Label Margin="2" Text="{Binding Name}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" TextColor="black"/>
-                                    <Label Padding="8" Text="{Binding Text}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" FontSize="14" TextColor="black"/>
+                                    <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" TextColor="black"/>
+                                    <Label Text="{Binding Text}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3" FontSize="13" TextColor="black" Padding="10" VerticalOptions="Start"/>
                                     
-                                    <Label Text="Created at:" Grid.Column="0" Grid.Row="2" FontSize="12" TextColor="black" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
-                                    <Label Text="{Binding Date_Creation}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalTextAlignment="Center" FontSize="10" TextColor="Black"/>
+                                    <Label Text="Created:" Grid.Column="0" Grid.Row="4" FontSize="11" TextColor="black" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+                                    <Label Text="{Binding Date_Creation}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="9" TextColor="Black"/>
 
-                                    <Label Text="Updated at:" Grid.Column="0" Grid.Row="3" FontSize="12" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
-                                    <Label Text="{Binding Date_Last}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" FontSize="10" VerticalTextAlignment="Center" TextColor="Black"/>
+                                    <Label Text="Updated at:" Grid.Column="3" Grid.Row="4" FontSize="11" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+                                    <Label Text="{Binding Date_Last}" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2" FontSize="9" VerticalTextAlignment="Center" TextColor="Black"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
@@ -47,6 +48,7 @@
             <Entry x:Name="TaskText" Keyboard="Text" Placeholder="Text of the task" BackgroundColor="white" TextColor="black" PlaceholderColor="black" FontSize="12" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3"/>
 
             <Button Clicked="OnUpdateTask" Text="Update" BackgroundColor="black" TextColor="white" FontSize="12" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="1"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
